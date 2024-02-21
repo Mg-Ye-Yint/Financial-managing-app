@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React from 'react';
+import ExpenseTracer from './components/ExpenseTracer';
+import Balance from './components/Balance';
 import './App.css';
+import IncomeAndExpenses from './components/IncomeAndExpenese';
+import TransactionList from './components/TransactionList';
+import AddNewTransaction from './components/NewTransaction';
+import { GlobalProvider } from './context/GlobalState';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function ETracker(){
+  return(
+    <GlobalProvider>
+      <div className="bigcontainer">
+      <ExpenseTracer/>
+      <div className="container">
+      <Balance/>
+      <div className = "inc-exp-container">
+      <IncomeAndExpenses/>
+      </div>
+      <TransactionList/>
+      <AddNewTransaction/>
+      </div>
+      </div>
+    </GlobalProvider>
+  )
 }
 
-export default App;
+
